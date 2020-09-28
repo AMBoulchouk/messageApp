@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm/dist/typeorm.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { Mensaje } from './mensajes/entities/mensaje.entity';
 import { MensajesController } from './mensajes/mensajes.controller';
 import { MensajesService } from './mensajes/mensajes.service';
 
@@ -17,6 +18,7 @@ import { MensajesService } from './mensajes/mensajes.service';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
+    TypeOrmModule.forFeature([Mensaje]),
   ],
   controllers: [AppController, MensajesController],
   providers: [AppService, MensajesService],
